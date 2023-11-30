@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.otus.java.pro.spring.project.dtos.ItemDto;
 import ru.otus.java.pro.spring.project.entities.Item;
+import ru.otus.java.pro.spring.project.exceptions.ResourceNotFoundException;
 import ru.otus.java.pro.spring.project.repositories.ItemsRepository;
 
 import java.util.List;
@@ -19,7 +20,8 @@ public class ItemsService {
     }
 
     public List<Item> getAllItems() {
-        return itemsRepository.findAll();
+        throw new ResourceNotFoundException("A");
+//        return itemsRepository.findAll();
     }
 
     public void createNewItem(ItemDto itemDto) {
